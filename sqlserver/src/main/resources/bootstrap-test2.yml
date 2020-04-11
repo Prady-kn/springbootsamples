@@ -1,0 +1,31 @@
+logging:
+  level:
+   org:
+    springframework: DEBUG
+spring:
+ application:
+  name: testpath
+ profiles:
+    active:
+    - test1
+ cloud:
+  vault:
+   fail-fast: false   
+   kv:
+    enabled: true
+    backend: "kv"
+    profile-separator: '/'
+    default-context: ""
+   authentication: APPROLE   
+   app-role:
+     role-id: 1b419239-e961-7191-a215-7e9bf17f6106
+     secret-id: eaa7a536-8bb4-b4ea-24be-7cf9885e45c3
+   generic:
+        enabled: false    
+   uri: http://localhost:8200    
+   scheme: http
+#      uri: http://localhost:8200
+   connection-timeout: 5000
+   read-timeout: 15000
+#      config:
+#          order: -10
